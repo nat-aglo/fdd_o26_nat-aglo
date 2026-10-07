@@ -79,15 +79,13 @@ Tres líneas, con los valores de arriba: qué salió igual en las dos, qué sali
 distinto, y por qué.
 
 <!-- que cambio
-Igual: los paquetes con sus versiones, porque uv.lock las fija y uv sync --locked instaló esas mismas en el contenedor; también el sistema
-(Linux x86_64),porque el contenedor comparte el kernel de mi pc. Python salió 3.13.16 en ambos por el FROM python:3.13-slim de la imagen.
-Distinto: el intérprete y el sys.prefix porque el contenedor trae su propio sistema de archivos y el WORKDIR es /app, donde copié 
-pyproject.toml, uv.lock y reporte.py con "atajo" ./; como mi .venv no entró, uv creó otro ahí, en /app/.venv.
+Igual: los paquetes con sus versiones, porque uv.lock las fija y uv sync --locked instaló esas mismas en el contenedor; también el sistema (Linux x86_64),porque el contenedor comparte el kernel de mi pc. Python salió 3.13.16 en ambos por el FROM python:3.13-slim de la imagen.
+Distinto: el intérprete y el sys.prefix porque el contenedor trae su propio sistema de archivos y el WORKDIR es /app, donde copié pyproject.toml, uv.lock y reporte.py con "atajo" ./; como mi .venv no entró, uv creó otro ahí, en /app/.venv.
  -->
 
 ## Tu imagen en Docker Hub
 
-URL pública: hub.docker.com/r/nataglo/reporte
+URL pública:https://hub.docker.com/r/nataglo/reporte
 
 Digest:sha256:a49d3edf47502de4d6eb1f4f2143a807623fc0a2b81fcd33ed37b57c204a7851
 
