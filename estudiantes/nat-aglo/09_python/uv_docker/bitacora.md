@@ -15,7 +15,6 @@ Para qué lo usa tu fila:calcular la media de numeros dentro de una tupla
 
 La salida completa del reporte corrido con uv en tu máquina.
 
-```text
 <!-- salida local -->
 nat@nat-Latitude-7490:~/Fuentes/fdd_o26_nat-aglo/estudiantes/nat-aglo/09_python/uv_docker$ uv run reporte.py
                                                          Mi ambiente
@@ -40,14 +39,10 @@ nat@nat-Latitude-7490:~/Fuentes/fdd_o26_nat-aglo/estudiantes/nat-aglo/09_python/
 │ rich           │ 15.0.0  │
 └────────────────┴─────────┘
 
-```
-
-
 ## Salida en el contenedor
 
 La salida completa del reporte corrido desde tu imagen.
 
-```text
 <!-- salida contenedor -->
 nat@nat-Latitude-7490:~/Fuentes/fdd_o26_nat-aglo/estudiantes/nat-aglo/09_python/uv_docker$ docker run --rm --platform linux/amd64 nataglo/reporte                     Mi ambiente                      
 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━┓
@@ -71,17 +66,14 @@ nat@nat-Latitude-7490:~/Fuentes/fdd_o26_nat-aglo/estudiantes/nat-aglo/09_python/
 │ rich           │ 15.0.0  │
 └────────────────┴─────────┘
 
-```
-
 ## Qué cambió y qué no
 
 Tres líneas, con los valores de arriba: qué salió igual en las dos, qué salió
 distinto, y por qué.
 
-<!-- que cambio
+
 Igual: los paquetes con sus versiones, porque uv.lock las fija y uv sync --locked instaló esas mismas en el contenedor; también el sistema (Linux x86_64),porque el contenedor comparte el kernel de mi pc. Python salió 3.13.16 en ambos por el FROM python:3.13-slim de la imagen.
 Distinto: el intérprete y el sys.prefix porque el contenedor trae su propio sistema de archivos y el WORKDIR es /app, donde copié pyproject.toml, uv.lock y reporte.py con "atajo" ./; como mi .venv no entró, uv creó otro ahí, en /app/.venv.
- -->
 
 ## Tu imagen en Docker Hub
 
@@ -89,14 +81,13 @@ URL pública:https://hub.docker.com/r/nataglo/reporte
 
 Digest:sha256:a49d3edf47502de4d6eb1f4f2143a807623fc0a2b81fcd33ed37b57c204a7851
 
-Comando para correrla:
+Comando para correrla: docker run --rm --platform linux/amd64 nataglo/reporte:latest
 
 ## Prueba de que se baja del registro
 
 La salida completa, en este orden, de cerrar sesión en el registro, borrar
 tu imagen local con la bandera de forzar, y correrla otra vez.
 
-```text
 <!-- prueba de pull -->
 nat@nat-Latitude-7490:~/Fuentes/fdd_o26_nat-aglo/estudiantes/nat-aglo/09_python/uv_docker$ docker logout
 Removing login credentials for https://index.docker.io/v1/
@@ -137,4 +128,3 @@ Status: Downloaded newer image for nataglo/reporte:latest
 │ rich           │ 15.0.0  │
 └────────────────┴─────────┘
 
-```
